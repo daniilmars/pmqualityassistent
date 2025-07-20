@@ -5,13 +5,13 @@
     <title>Loading PM Quality Assistant...</title>
     <script>
         // Leitet den Benutzer basierend auf der Browsersprache weiter.
-        // Deutsch (de), Österreichisch (de-at), Schweizerisch (de-ch) werden zur deutschen Seite geleitet.
-        // Alle anderen Sprachen zur englischen Seite.
         const userLang = navigator.language || navigator.userLanguage;
+        
+        // KORREKTUR: Relative Pfade verwenden, damit es auf GitHub Pages funktioniert.
         if (userLang.startsWith('de')) {
-            window.location.href = '/de/';
+            window.location.href = 'de/'; // Ohne "/" am Anfang
         } else {
-            window.location.href = '/en/';
+            window.location.href = 'en/'; // Ohne "/" am Anfang
         }
     </script>
 </head>
