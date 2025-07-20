@@ -50,10 +50,23 @@ h2 {
     margin-bottom: 3rem;
 }
 
-p {
-    font-size: 1.1rem;
+section .container p {
+    font-size: 1.2rem;
     color: var(--secondary-text-color);
-    max-width: 650px; /* Für bessere Lesbarkeit */
+    max-width: 750px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section .container ul {
+    font-size: 1.2rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    list-style-position: inside;
+    text-align: left;
+    display: inline-block;
 }
 
 section {
@@ -63,7 +76,6 @@ section {
 section:last-of-type {
     border-bottom: none;
 }
-
 
 /* 3. HEADER & NAVIGATION */
 .main-header {
@@ -105,11 +117,16 @@ section:last-of-type {
     font-size: 1.5rem;
     margin: 1rem auto;
 }
+.hero-visual img {
+    max-width: 100%;
+    margin-top: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
 
 .problem-section {
     background: transparent;
 }
-
 .problem-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -119,7 +136,7 @@ section:last-of-type {
 .card {
     background: var(--card-background-color);
     padding: 2rem;
-    border-radius: 20px; /* Stärker abgerundete Ecken */
+    border-radius: 20px;
     text-align: left;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
@@ -135,7 +152,17 @@ section:last-of-type {
 }
 .card p {
     font-size: 1rem;
+    text-align: left;
 }
+.security-points .point p {
+    text-align: center;
+}
+.architecture-visual img {
+    max-width: 100%;
+    max-width: 700px;
+    margin-top: 2rem;
+}
+
 
 /* 5. BUTTONS & INTERAKTIONEN */
 .btn {
@@ -162,29 +189,60 @@ section:last-of-type {
     border: 1px solid var(--primary-color);
 }
 
+/* 6. FORMULAR-STYLING */
+.pilot-section {
+    text-align: center;
+}
+.contact-form {
+    max-width: 500px;
+    margin: 2rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.contact-form input {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--card-background-color);
+    font-family: var(--font-family);
+    font-size: 1rem;
+}
+.contact-form input:focus {
+    outline: 2px solid var(--primary-color);
+    border-color: var(--primary-color);
+}
 
-/* 6. ANIMATIONEN */
+
+/* 7. ANIMATIONEN */
 .fade-in-section {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-
 .fade-in-section.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 
-/* 7. FOOTER */
+/* 8. FOOTER */
 .main-footer {
     background: transparent;
     color: var(--secondary-text-color);
     text-align: center;
-    padding: 2rem 0;
+    padding: 3rem 0;
     font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
 }
-.main-footer a {
+.footer-links a {
     color: var(--text-color);
     text-decoration: underline;
+    margin: 0 0.5rem;
 }
