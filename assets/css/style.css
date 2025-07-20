@@ -59,16 +59,6 @@ section .container p {
     margin-right: auto;
 }
 
-section .container ul {
-    font-size: 1.2rem;
-    max-width: 750px;
-    margin-left: auto;
-    margin-right: auto;
-    list-style-position: inside;
-    text-align: left;
-    display: inline-block;
-}
-
 section {
     padding: 5rem 0;
     border-bottom: 1px solid var(--border-color);
@@ -149,63 +139,201 @@ section:last-of-type {
 .card h3 {
     font-size: 1.2rem;
     color: var(--text-color);
+    text-align: center; /* NEU */
 }
 .card p {
     font-size: 1rem;
     text-align: left;
 }
-.security-points .point p {
-    text-align: center;
+/* Styling für Icons in den Problem-Karten */
+.card {
+    /* Bestehende .card-Regeln bleiben, wir fügen nur Flexbox hinzu */
+    display: flex;
+    flex-direction: column;
 }
+
+.card p {
+    /* Sorgt dafür, dass der Text den verfügbaren Platz einnimmt und das Icon nach unten drückt */
+    flex-grow: 1; 
+}
+
+.card .card-icon {
+    font-size: 2.5rem;
+    color: var(--border-color); /* Dezente Farbe für die Icons */
+    margin-top: 1.5rem; /* Abstand zum Text darüber */
+    align-self: center; /* Zentriert das Icon horizontal */
+}
+
 .architecture-visual img {
     max-width: 100%;
     max-width: 700px;
     margin-top: 2rem;
 }
 
+/* Feature Grid für die Lösungs-Sektion */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.feature-item .feature-icon {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.feature-item h3 {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Security Grid für die Sicherheits-Sektion */
+.security-section {
+    background: transparent;
+}
+
+.security-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.security-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.security-item .security-icon {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.security-item h3 {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.security-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Responsives Verhalten für mobile Ansicht */
+@media (max-width: 768px) {
+    .features-grid, .security-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Styling für Investoren-Sektion */
+.investors-section {
+    background: transparent;
+}
+
+.investor-box {
+    background: var(--card-background-color);
+    padding: 3rem;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: auto;
+    /* NEU: Flexbox zur Zentrierung verwenden */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Behalten wir für den Text-Umbruch */
+}
+
+.investor-box h2,
+.investor-box p {
+    color: var(--light-color);
+}
+
+.investor-box .btn {
+    background: var(--card-background-color);
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+} 
 
 /* 5. BUTTONS & INTERAKTIONEN */
 .btn {
     display: inline-block;
     padding: 0.8rem 1.8rem;
-    border: none;
     border-radius: 980px; /* Pill-Shape */
     cursor: pointer;
     text-decoration: none;
     font-weight: 700;
     font-size: 0.9rem;
-    transition: transform 0.3s ease;
-}
-.btn:hover {
-    transform: scale(1.05);
-}
-.btn-primary {
-    background: var(--primary-color);
-    color: var(--light-color);
-}
-.btn-secondary {
-    background: var(--card-background-color);
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    
+    /* NEU: Einheitlicher Stil */
+    background: var(--card-background-color); /* Weisser Hintergrund */
+    color: var(--primary-color); /* Blaue Schrift */
+    border: 2px solid var(--primary-color); /* Blauer Rand */
+    
+    /* NEU: Sanfter Übergang für den Hover-Effekt */
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-/* 6. FORMULAR-STYLING */
-.pilot-section {
+.btn:hover {
+    transform: scale(1.05);
+    
+    /* NEU: Hover-Effekt */
+    background: var(--primary-color); /* Blauer Hintergrund */
+    color: var(--light-color); /* Weisse Schrift */
+}
+
+/* 6. FORMULAR-STYLING & PILOT-KARTE */
+.pilot-section .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pilot-box {
+    background: var(--card-background-color);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    max-width: 600px;
+    width: 100%;
     text-align: center;
 }
+
 .contact-form {
-    max-width: 500px;
-    margin: 2rem auto 0 auto;
+    width: 100%;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
+
 .form-fields {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-bottom: 1rem;
 }
+
 .contact-form input {
     padding: 1rem;
     border: 1px solid var(--border-color);
@@ -213,12 +341,22 @@ section:last-of-type {
     background: var(--card-background-color);
     font-family: var(--font-family);
     font-size: 1rem;
-}
-.contact-form input:focus {
-    outline: 2px solid var(--primary-color);
-    border-color: var(--primary-color);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    -webkit-appearance: none;
 }
 
+.contact-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.4);
+}
+
+.contact-form .btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
 
 /* 7. ANIMATIONEN */
 .fade-in-section {

@@ -2,16 +2,15 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Loading PM Quality Assistant...</title>
+    <title>Loading Plant Maintenance Quality Assistant...</title>
     <script>
         // Leitet den Benutzer basierend auf der Browsersprache weiter.
         const userLang = navigator.language || navigator.userLanguage;
         
-        // KORREKTUR: Relative Pfade verwenden, damit es auf GitHub Pages funktioniert.
         if (userLang.startsWith('de')) {
-            window.location.href = 'de/'; // Ohne "/" am Anfang
+            window.location.href = 'de/'; // Relativer Pfad
         } else {
-            window.location.href = 'en/'; // Ohne "/" am Anfang
+            window.location.href = 'en/'; // Relativer Pfad
         }
     </script>
 </head>

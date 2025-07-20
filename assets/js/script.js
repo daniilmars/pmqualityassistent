@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Weisen Sie den Observer allen Sektionen und Karten zu
-    document.querySelectorAll('section, .card').forEach(element => {
+    document.querySelectorAll('section, .card, .pilot-box').forEach(element => {
         element.classList.add('fade-in-section'); // Fügt die initiale Animationsklasse hinzu
         observer.observe(element);
     });
