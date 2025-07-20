@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading PM Quality Assistant...</title>
+    <script>
+        // Leitet den Benutzer basierend auf der Browsersprache weiter.
+        // Deutsch (de), Österreichisch (de-at), Schweizerisch (de-ch) werden zur deutschen Seite geleitet.
+        // Alle anderen Sprachen zur englischen Seite.
+        const userLang = navigator.language || navigator.userLanguage;
+        if (userLang.startsWith('de')) {
+            window.location.href = '/de/';
+        } else {
+            window.location.href = '/en/';
+        }
+    </script>
+</head>
+<body>
+    <p>Loading...</p>
+</body>
+</html>
