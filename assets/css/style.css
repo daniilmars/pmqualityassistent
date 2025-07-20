@@ -79,17 +79,23 @@ section:last-of-type {
 }
 
 .main-header .container {
+    /* ÄNDERUNG: Container wird breiter und hat mehr Aussenabstand */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem; /* Weniger horizontaler Abstand */
 }
 
 .main-header .logo {
+    /* ÄNDERUNG: Logo wird zu einem Flex-Container */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* Abstand zwischen Logo und Text */
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--text-color);
 }
+
 
 .main-header nav a {
     color: var(--text-color);
@@ -251,7 +257,7 @@ section:last-of-type {
 }
 
 .investor-box {
-    background: var(--card-background-color);
+    background: transparent;
     padding: 3rem;
     border-radius: 20px;
     max-width: 800px;
