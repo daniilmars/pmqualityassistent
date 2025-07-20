@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Bestehender Code für sanftes Scrollen ---
+    // --- Code für sanftes Scrollen ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -11,23 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Bestehender Code für das Formular ---
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = this.querySelector('input[name="name"]').value;
-            const lang = document.documentElement.lang;
-            const message = lang === 'de' 
-                ? `Vielen Dank, ${name}! Ihre Anfrage wurde (simuliert) versendet.`
-                : `Thank you, ${name}! Your request has been (simulated) sent.`;
-            
-            alert(message);
-            this.reset();
-        });
-    }
-
-    // --- NEU: Code für Fade-In Animationen beim Scrollen ---
+    // --- Code für Fade-In Animationen beim Scrollen ---
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
