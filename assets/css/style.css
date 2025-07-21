@@ -29,7 +29,7 @@ body {
 }
 
 .container {
-    max-width: 980px; /* Typische Breite für zentrierten Apple-Content */
+    max-width: 980px;
     margin: auto;
     padding: 0 1.5rem;
 }
@@ -69,9 +69,8 @@ section:last-of-type {
 
 /* 3. HEADER & NAVIGATION */
 .main-header {
-    background: rgba(255, 255, 255, 0.8); /* Frosted-Glass-Effekt */
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: saturate(180%) blur(20px);
-    box-shadow: none;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -79,23 +78,25 @@ section:last-of-type {
 }
 
 .main-header .container {
-    /* ÄNDERUNG: Container wird breiter und hat mehr Aussenabstand */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem; /* Weniger horizontaler Abstand */
+    padding: 1rem 1.5rem;
 }
 
 .main-header .logo {
-    /* ÄNDERUNG: Logo wird zu einem Flex-Container */
     display: flex;
     align-items: center;
-    gap: 0.75rem; /* Abstand zwischen Logo und Text */
+    gap: 0.75rem;
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--text-color);
 }
 
+.sap-logo {
+    height: 24px;
+    width: auto;
+}
 
 .main-header nav a {
     color: var(--text-color);
@@ -105,19 +106,62 @@ section:last-of-type {
 }
 
 /* 4. LAYOUT & KARTEN-DESIGN */
+/* Styling für die Hero-Sektion mit Video-Hintergrund */
 .hero-section {
-    text-align: center;
-    padding-top: 6rem;
+    height: 100vh;
+    padding: 0;
+    overflow: hidden;
+    display: grid;
+    place-items: center; 
 }
+
+.hero-section > * {
+    grid-area: 1 / 1;
+}
+
+.hero-background-video,
+.hero-overlay {
+    animation: fade-out linear forwards;
+    animation-timeline: scroll(root);
+    animation-range: 0 400px;
+}
+
+.hero-background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: 1; 
+}
+
+.hero-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2; 
+}
+
+.hero-content {
+    z-index: 3;
+    text-align: center; /* NEU: Zentriert allen Inhalt, inklusive der Buttons */
+}
+
+/* NEU: Ein kleiner Abstand und Layout für die Button-Gruppe */
+.cta-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap; /* Sorgt für Umbruch auf sehr kleinen Bildschirmen */
+}
+
+.hero-section h1 {
+    color: var(--card-background-color);
+}
+
 .hero-section .subtitle {
+    color: rgba(255, 255, 255, 0.9);
     font-size: 1.5rem;
     margin: 1rem auto;
-}
-.hero-visual img {
-    max-width: 100%;
-    margin-top: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .problem-section {
@@ -133,10 +177,11 @@ section:last-of-type {
     background: var(--card-background-color);
     padding: 2rem;
     border-radius: 20px;
-    text-align: left;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 .card:hover {
     transform: translateY(-5px);
@@ -145,29 +190,18 @@ section:last-of-type {
 .card h3 {
     font-size: 1.2rem;
     color: var(--text-color);
-    text-align: center; /* NEU */
+    text-align: center;
 }
 .card p {
     font-size: 1rem;
     text-align: left;
-}
-/* Styling für Icons in den Problem-Karten */
-.card {
-    /* Bestehende .card-Regeln bleiben, wir fügen nur Flexbox hinzu */
-    display: flex;
-    flex-direction: column;
-}
-
-.card p {
-    /* Sorgt dafür, dass der Text den verfügbaren Platz einnimmt und das Icon nach unten drückt */
     flex-grow: 1; 
 }
-
 .card .card-icon {
     font-size: 2.5rem;
-    color: var(--border-color); /* Dezente Farbe für die Icons */
-    margin-top: 1.5rem; /* Abstand zum Text darüber */
-    align-self: center; /* Zentriert das Icon horizontal */
+    color: var(--border-color);
+    margin-top: 1.5rem;
+    align-self: center;
 }
 
 .architecture-visual img {
@@ -262,11 +296,10 @@ section:last-of-type {
     border-radius: 20px;
     max-width: 800px;
     margin: auto;
-    /* NEU: Flexbox zur Zentrierung verwenden */
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center; /* Behalten wir für den Text-Umbruch */
+    text-align: center;
 }
 
 .investor-box h2,
@@ -284,27 +317,21 @@ section:last-of-type {
 .btn {
     display: inline-block;
     padding: 0.8rem 1.8rem;
-    border-radius: 980px; /* Pill-Shape */
+    border-radius: 980px;
     cursor: pointer;
     text-decoration: none;
     font-weight: 700;
     font-size: 0.9rem;
-    
-    /* NEU: Einheitlicher Stil */
-    background: var(--card-background-color); /* Weisser Hintergrund */
-    color: var(--primary-color); /* Blaue Schrift */
-    border: 2px solid var(--primary-color); /* Blauer Rand */
-    
-    /* NEU: Sanfter Übergang für den Hover-Effekt */
+    background: var(--card-background-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn:hover {
     transform: scale(1.05);
-    
-    /* NEU: Hover-Effekt */
-    background: var(--primary-color); /* Blauer Hintergrund */
-    color: var(--light-color); /* Weisse Schrift */
+    background: var(--primary-color);
+    color: var(--light-color);
 }
 
 /* 6. FORMULAR-STYLING & PILOT-KARTE */
@@ -389,4 +416,9 @@ section:last-of-type {
     color: var(--text-color);
     text-decoration: underline;
     margin: 0 0.5rem;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
