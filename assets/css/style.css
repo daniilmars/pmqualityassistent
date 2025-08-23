@@ -405,19 +405,22 @@ section:last-of-type {
     fill: var(--card-background-color);
     stroke: var(--primary-color);
     stroke-width: 2.5;
+    r: 15;
 }
 
 .milestone-label {
     font-family: var(--font-family);
-    font-size: 10px;
+    font-size: 1.2rem;
     font-weight: 700;
     fill: var(--text-color);
     text-anchor: middle; /* Centers text horizontally */
 }
 /* Adjust specific label positions */
-.milestone-label[x="80"] { text-anchor: end; }
-.milestone-label[x="320"] { text-anchor: start; }
-.milestone-label[x="180"] { text-anchor: end; }
+.milestone-label[x="75"] { text-anchor: end; }
+.milestone-label[x="325"] { text-anchor: start; }
+.milestone-label[x="225"] { text-anchor: start; }
+.milestone-label[x="275"] { text-anchor: end; }
+.milestone-label[x="125"] { text-anchor: start; }
 
 #timeline-tooltip {
     display: none; /* Hidden by default */
@@ -433,6 +436,11 @@ section:last-of-type {
     opacity: 0; /* ADD THIS: Start invisible for fade-in */
     transition: opacity 0.2s ease; /* ADD THIS: Animate the fade */
     pointer-events: none;
+}
+
+.milestone-icon {
+    font-size: 3.5rem;
+    color: var(--primary-color);
 }
 
 
