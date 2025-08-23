@@ -1,5 +1,4 @@
 /* --- MODERN & TRUSTWORTHY DESIGN --- */
-
 /* 1. GRUNDEINSTELLUNGEN & VARIABLEN */
 :root {
     --primary-color: #0071e3; /* Ein kräftigeres, Apple-ähnliches Blau */
@@ -10,30 +9,25 @@
     --border-color: #d2d2d7;
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 body {
     font-family: var(--font-family);
     line-height: 1.6;
     background: var(--background-color);
     color: var(--text-color);
 }
-
 .container {
     max-width: 980px;
     margin: auto;
     padding: 0 1.5rem;
 }
-
 /* 2. TYPOGRAFIE */
 h1 {
     font-size: 3rem;
@@ -42,14 +36,12 @@ h1 {
     letter-spacing: -0.015em;
     margin-bottom: 1rem;
 }
-
 h2 {
     font-size: 2.5rem;
     font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
 }
-
 section .container p {
     font-size: 1.2rem;
     color: var(--secondary-text-color);
@@ -58,7 +50,6 @@ section .container p {
     margin-left: auto;
     margin-right: auto;
 }
-
 section {
     padding: 5rem 0;
     border-bottom: 1px solid var(--border-color);
@@ -66,24 +57,21 @@ section {
 section:last-of-type {
     border-bottom: none;
 }
-
 /* 3. HEADER & NAVIGATION */
 .main-header {
     background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: saturate(180%) blur(20px);
+    /* backdrop-filter: saturate(180%) blur(20px); */ 
     position: sticky;
     top: 0;
     z-index: 100;
     border-bottom: 1px solid var(--border-color);
 }
-
 .main-header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1.5rem;
 }
-
 .main-header .logo {
     display: flex;
     align-items: center;
@@ -92,19 +80,16 @@ section:last-of-type {
     font-weight: 700;
     color: var(--text-color);
 }
-
 .sap-logo {
     height: 24px;
     width: auto;
 }
-
 .main-header nav a {
     color: var(--text-color);
     text-decoration: none;
     margin-left: 2rem;
     font-size: 0.9rem;
 }
-
 /* 4. LAYOUT & KARTEN-DESIGN */
 /* Styling für die Hero-Sektion mit Video-Hintergrund */
 .hero-section {
@@ -112,39 +97,33 @@ section:last-of-type {
     padding: 0;
     overflow: hidden;
     display: grid;
-    place-items: center; 
+    place-items: center;
 }
-
 .hero-section > * {
     grid-area: 1 / 1;
 }
-
 .hero-background-video,
 .hero-overlay {
     animation: fade-out linear forwards;
-    animation-timeline: scroll(root);
-    animation-range: 0 400px;
+    /* animation-timeline: scroll(root);*/
+    /* animation-range: 0 400px;*/
 }
-
 .hero-background-video {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
-    z-index: 1; 
+    object-fit: cover;
+    z-index: 1;
 }
-
 .hero-overlay {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2; 
+    z-index: 2;
 }
-
 .hero-content {
     z-index: 3;
     text-align: center; /* NEU: Zentriert allen Inhalt, inklusive der Buttons */
 }
-
 /* NEU: Ein kleiner Abstand und Layout für die Button-Gruppe */
 .cta-buttons {
     margin-top: 2rem;
@@ -153,17 +132,14 @@ section:last-of-type {
     gap: 1rem;
     flex-wrap: wrap; /* Sorgt für Umbruch auf sehr kleinen Bildschirmen */
 }
-
 .hero-section h1 {
     color: var(--card-background-color);
 }
-
 .hero-section .subtitle {
     color: rgba(255, 255, 255, 0.9);
     font-size: 1.5rem;
     margin: 1rem auto;
 }
-
 .problem-section {
     background: transparent;
 }
@@ -172,7 +148,6 @@ section:last-of-type {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
-
 .card {
     background: var(--card-background-color);
     padding: 2rem;
@@ -195,7 +170,7 @@ section:last-of-type {
 .card p {
     font-size: 1rem;
     text-align: left;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 .card .card-icon {
     font-size: 2.5rem;
@@ -203,13 +178,11 @@ section:last-of-type {
     margin-top: 1.5rem;
     align-self: center;
 }
-
 .architecture-visual img {
     max-width: 100%;
     max-width: 700px;
     margin-top: 2rem;
 }
-
 /* Feature Grid für die Lösungs-Sektion */
 .features-grid {
     display: grid;
@@ -217,79 +190,66 @@ section:last-of-type {
     gap: 2.5rem;
     margin-top: 4rem;
 }
-
 .feature-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
-
 .feature-item .feature-icon {
     font-size: 3.5rem;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
 }
-
 .feature-item h3 {
     font-size: 1.25rem;
     color: var(--text-color);
     margin-bottom: 0.5rem;
 }
-
 .feature-item p {
     font-size: 1rem;
     line-height: 1.5;
 }
-
 /* Security Grid für die Sicherheits-Sektion */
 .security-section {
     background: transparent;
 }
-
 .security-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
     margin-top: 4rem;
 }
-
 .security-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
-
 .security-item .security-icon {
     font-size: 3.5rem;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
 }
-
 .security-item h3 {
     font-size: 1.25rem;
     color: var(--text-color);
     margin-bottom: 0.5rem;
 }
-
 .security-item p {
     font-size: 1rem;
     line-height: 1.5;
 }
-
 /* Responsives Verhalten für mobile Ansicht */
 @media (max-width: 768px) {
     .features-grid, .security-grid {
         grid-template-columns: 1fr;
     }
 }
-
 /* Styling für Investoren-Sektion */
 .investors-section {
     background: transparent;
 }
-
 .investor-box {
     background: transparent;
     padding: 3rem;
@@ -301,18 +261,15 @@ section:last-of-type {
     align-items: center;
     text-align: center;
 }
-
 .investor-box h2,
 .investor-box p {
     color: var(--light-color);
 }
-
 .investor-box .btn {
     background: var(--card-background-color);
     color: var(--primary-color);
     margin-top: 1.5rem;
-} 
-
+}
 /* 5. BUTTONS & INTERAKTIONEN */
 .btn {
     display: inline-block;
@@ -327,13 +284,11 @@ section:last-of-type {
     border: 2px solid var(--primary-color);
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
-
 .btn:hover {
     transform: scale(1.05);
     background: var(--primary-color);
     color: var(--light-color);
 }
-
 /* 6. FORMULAR-STYLING & PILOT-KARTE */
 .pilot-section .container {
     display: flex;
@@ -341,7 +296,6 @@ section:last-of-type {
     align-items: center;
     flex-direction: column;
 }
-
 .pilot-box {
     background: var(--card-background-color);
     padding: 3rem;
@@ -352,7 +306,6 @@ section:last-of-type {
     width: 100%;
     text-align: center;
 }
-
 .contact-form {
     width: 100%;
     margin-top: 2rem;
@@ -360,13 +313,11 @@ section:last-of-type {
     flex-direction: column;
     gap: 1rem;
 }
-
 .form-fields {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
-
 .contact-form input {
     padding: 1rem;
     border: 1px solid var(--border-color);
@@ -377,20 +328,17 @@ section:last-of-type {
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     -webkit-appearance: none;
 }
-
 .contact-form input:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.4);
 }
-
 .contact-form .btn {
     width: 100%;
     padding: 1rem;
     font-size: 1rem;
     margin-top: 1rem;
 }
-
 /* 7. ANIMATIONEN */
 .fade-in-section {
     opacity: 0;
@@ -401,8 +349,6 @@ section:last-of-type {
     opacity: 1;
     transform: translateY(0);
 }
-
-
 /* 8. FOOTER */
 .main-footer {
     background: transparent;
@@ -417,8 +363,79 @@ section:last-of-type {
     text-decoration: underline;
     margin: 0 0.5rem;
 }
-
 @keyframes fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
+
+/* 9. (REVISED) TIMELINE-SEKTION */
+.process-section {
+    padding-bottom: 10vh;
+}
+
+.process-section .section-subtitle {
+    margin-bottom: 2rem;
+}
+.timeline-wrapper {
+    position: relative;
+    max-width: 500px;
+    margin: auto;
+}
+.timeline-svg {
+    width: 100%;
+    height: auto;
+}
+.timeline-path {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 2000; /* Must be longer than the path */
+    stroke-dashoffset: 2000; /* Hides the path initially */
+}
+.milestone-group {
+    cursor: pointer;
+}
+.milestone-circle {
+    fill: var(--card-background-color);
+    stroke: var(--primary-color);
+    stroke-width: 2.5;
+}
+
+.milestone-label {
+    font-family: var(--font-family);
+    font-size: 10px;
+    font-weight: 700;
+    fill: var(--text-color);
+    text-anchor: middle; /* Centers text horizontally */
+}
+/* Adjust specific label positions */
+.milestone-label[x="80"] { text-anchor: end; }
+.milestone-label[x="320"] { text-anchor: start; }
+.milestone-label[x="180"] { text-anchor: end; }
+
+#timeline-tooltip {
+    display: none; /* Hidden by default */
+    position: absolute; /* Position relative to the page */
+    background-color: var(--text-color);
+    color: var(--card-background-color);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    width: 220px;
+    text-align: center;
+    z-index: 101;
+    opacity: 0; /* ADD THIS: Start invisible for fade-in */
+    transition: opacity 0.2s ease; /* ADD THIS: Animate the fade */
+    pointer-events: none;
+}
+
+
+
+
+

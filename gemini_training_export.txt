@@ -1,0 +1,1156 @@
+========================================
+PROJECT STRUCTURE (tree -L 3)
+========================================
+.
+├── assets
+│   ├── css
+│   │   └── style.css
+│   ├── images
+│   │   ├── architecture.svg
+│   │   └── hero-visual.gif
+│   ├── js
+│   │   └── script.js
+│   └── videos
+│       ├── Data_Center_Video_Request_Fulfilled.mp4
+│       ├── Video_Generation_Confirmation.mp4
+│       ├── Video_Generation_Request_Confirmed.mp4
+│       ├── Video_Ready_Lab_Quality_Check.mp4
+│       └── Video_Request_Engineering_Lab_Scene.mp4
+├── de
+│   ├── datenschutz.html
+│   ├── impressum.html
+│   └── index.html
+├── en
+│   ├── index.html
+│   ├── legal-notice.html
+│   └── privacy-policy.html
+├── generate_training_data.py
+├── index.html
+└── README.md
+
+
+========================================
+RELEVANT FILE CONTENTS
+========================================
+
+--- File: .github/workflows/deploy.yml ---
+
+name: Deploy Website to Netlify/GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+
+--- File: index.html ---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading Plant Maintenance Quality Assistant...</title>
+    <script>
+        // Leitet den Benutzer basierend auf der Browsersprache weiter.
+        const userLang = navigator.language || navigator.userLanguage;
+        
+        if (userLang.startsWith('de')) {
+            window.location.href = 'de/'; // Relativer Pfad
+        } else {
+            window.location.href = 'en/'; // Relativer Pfad
+        }
+    </script>
+</head>
+<body>
+    <p>Loading...</p>
+</body>
+</html>
+
+
+--- File: de/index.html ---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Maintenance Qualitätsassistent - Intelligente SAP Datenqualität</title>
+    <meta name="description" content="Steigern Sie Ihre Datenqualität in SAP Plant Maintenance, minimieren Sie Audit-Risiken und optimieren Sie Ihre Instandhaltungsprozesse mit unserem intelligenten Assistenten.">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <span>SAP<sup>&reg;</sup> Plant Maintenance Qualitätsassistent</span>
+            </div>
+            <nav>
+                <a href="#pilot">Pilotkunde werden</a>
+                <a href="#investors" class="nav-investors">Für Investoren</a>
+                <a href="../en/" class="language-switch">English</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="hero" class="hero-section">
+            <video autoplay loop muted playsinline class="hero-background-video">
+                <source src="../assets/videos/Video_Generation_Request_Confirmed.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>Schluss mit Audit-Stress und Daten-Chaos.</h1>
+                <p class="subtitle">Unser intelligenter Assistent für SAP Plant Maintenance bewertet, verbessert und standardisiert Ihre Instandhaltungs-Dokumentation. Sicher, selbstlernend und nahtlos integriert.</p>
+                <div class="cta-buttons">
+                    <a href="#pilot" class="btn">Prototyp-Demo anfragen</a>
+                    <a href="#investors" class="btn">Mehr für Investoren</a>
+                </div>
+            </div>
+        </section>
+        <section id="problem" class="problem-section">
+            <div class="container">
+                <h2>Kommt Ihnen das bekannt vor?</h2>
+                <div class="problem-cards">
+                    <div class="card">
+                        <h3>Audit-Risiko</h3>
+                        <p>"Major Findings" bei Behörden-Audits wegen unklarer Protokolle.</p>
+                        <span class="material-symbols-outlined card-icon">gavel</span>
+                    </div>
+                    <div class="card">
+                        <h3>Ineffizienz</h3>
+                        <p>Unklare Meldungen kosten Zeit, verursachen Rückfragen und führen zu Stillständen.</p>
+                        <span class="material-symbols-outlined card-icon">hourglass_disabled</span>
+                    </div>
+                    <div class="card">
+                        <h3>Wissensverlust</h3>
+                        <p>Wertvolles Expertenwissen versandet in schlecht formulierten Texten.</p>
+                        <span class="material-symbols-outlined card-icon">psychology_alt</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="solution" class="solution-section">
+            <div class="container">
+                <h2>Ihr digitaler Qualitäts-Champion</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="material-symbols-outlined feature-icon">psychology</span>
+                        <h3>Intelligente Echtzeit-Analyse</h3>
+                        <p>Analysiert jeden Meldungstext in Echtzeit nach GMP- und ALCOA+-Kriterien. Ein klarer Score von 0-100 zeigt sofort die dokumentarische Qualität.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-symbols-outlined feature-icon">model_training</span>
+                        <h3>Von Experten trainiert</h3>
+                        <p>Lernt kontinuierlich aus dem Feedback Ihrer Fachexperten. So passt sich die KI Ihrer firmeneigenen Terminologie an und wird mit jeder Nutzung präziser.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-symbols-outlined feature-icon">monitoring</span>
+                        <h3>Qualität messbar machen</h3>
+                        <p>Machen Sie Datenqualität steuerbar. Interaktive Dashboards decken systematische Schwachstellen auf und zeigen gezielten Schulungsbedarf im Team.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-symbols-outlined feature-icon">fact_check</span>
+                        <h3>Konformität nach Ihren Regeln</h3>
+                        <p>Stellen Sie die Einhaltung Ihrer Vorgaben sicher. Die KI nutzt Ihre Standardarbeitsanweisungen (SOPs) als Wissensbasis und prüft Texte auf Konformität.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="process" class="process-section">
+            <div class="container">
+                <h2>So funktioniert's: Vom Plan zur Perfektion</h2>
+                <p class="section-subtitle">Unser Assistent begleitet Sie durch den gesamten Instandhaltungsprozess – von der Planung oder Störungsmeldung bis zum sauberen Abschluss.</p>
+                
+                <div class="timeline-wrapper">
+                    <svg class="timeline-svg" viewBox="0 0 400 650" preserveAspectRatio="xMidYMid meet">
+                        <path class="timeline-path" d="M 100 25 V 125 C 100 175, 200 175, 200 225 S 300 275, 300 325 V 375 S 300 425, 200 475 S 100 525, 100 575 V 625" />
+                        <path class="timeline-path" d="M 300 25 V 125 C 300 175, 200 175, 200 225" />
+                        
+                        <g class="milestone-group" data-tooltip="Eine präventive Wartung wird vom System automatisch ausgelöst.">
+                            <circle class="milestone-circle" cx="100" cy="25" r="8" />
+                            <text class="milestone-label" x="80" y="29">Planung</text>
+                        </g>
+                        <g class="milestone-group" data-tooltip="Ein Techniker erfasst eine ungeplante Störung im System.">
+                            <circle class="milestone-circle" cx="300" cy="25" r="8" />
+                            <text class="milestone-label" x="320" y="29">Störung</text>
+                        </g>
+                        <g class="milestone-group" data-tooltip="Arbeitsplan, Material und Ressourcen sind im Auftrag hinterlegt.">
+                            <circle class="milestone-circle" cx="100" cy="125" r="8" />
+                            <text class="milestone-label" x="80" y="129">Freigabe</text>
+                        </g>
+                        <g class="milestone-group" data-tooltip="Ein Planer prüft die Meldung und legt einen Auftrag an.">
+                            <circle class="milestone-circle" cx="300" cy="125" r="8" />
+                            <text class="milestone-label" x="320" y="129">Auftragserstellung</text>
+                        </g>
+                        <g class="milestone-group" data-tooltip="Der Techniker beginnt mit der Ausführung der geplanten Arbeiten.">
+                            <circle class="milestone-circle" cx="200" cy="225" r="8" />
+                            <text class="milestone-label" x="180" y="229">Durchführung</text>
+                        </g>
+                        <g class="milestone-group" data-tooltip="Der Techniker dokumentiert seine Tätigkeiten.">
+                            <circle class="milestone-circle" cx="300" cy="375" r="8" />
+                            <text class="milestone-label" x="320" y="379">Rückmeldung</text>
+                        </g>
+                        <g class="milestone-group" data-tooltip="Die technische Arbeit ist beendet.">
+                            <circle class="milestone-circle" cx="200" cy="475" r="8" />
+                            <text class="milestone-label" x="180" y="479">Techn. Abschluss</text>
+                        </g>
+                         <g class="milestone-group" data-tooltip="Alle Kosten sind verbucht, der Prozess ist vollständig abgeschlossen.">
+                            <circle class="milestone-circle" cx="100" cy="625" r="8" />
+                            <text class="milestone-label" x="80" y="629">Abschluss</text>
+                        </g>
+                    </svg>
+                </div>
+                <div id="timeline-tooltip"></div>
+            </div>
+        </section>
+        <section id="security" class="security-section">
+            <div class="container">
+                <h2>Ihre Daten. Ihre Kontrolle. Immer.</h2>
+                <p>Unsere Architektur wurde für die höchsten Sicherheits- und Compliance-Anforderungen der Pharma-Industrie entwickelt.</p>
+                <div class="security-grid">
+                    <div class="security-item">
+                        <span class="material-symbols-outlined security-icon">shield_lock</span>
+                        <h3>Datenhoheit</h3>
+                        <p>Die Analyse erfolgt in Ihrer sicheren SAP BTP-Umgebung. Sensible Daten verlassen niemals die Systemlandschaft Ihres Unternehmens.</p>
+                    </div>
+                    <div class="security-item">
+                        <span class="material-symbols-outlined security-icon">gpp_good</span>
+                        <h3>DSGVO & GxP by Design</h3>
+                        <p>Kein unkontrollierter Drittlandtransfer. Sie wählen den Standort des Rechenzentrums (z.B. Frankfurt für EU-Datenschutz).</p>
+                    </div>
+                    <div class="security-item">
+                        <span class="material-symbols-outlined security-icon">lan</span>
+                        <h3>Nahtlose Integration</h3>
+                        <p>Sichere, verschlüsselte Anbindung an Ihr SAP-System über den Standard SAP Cloud Connector, ohne offene Firewall-Ports.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="investors" class="investors-section">
+            <div class="container">
+                <div class="investor-box">
+                    <h2>Für Investoren: Ein neuer Standard für eine Milliarden-Branche</h2>
+                    <p>Wir adressieren ein kritisches Problem im wachsenden Markt für digitale Qualitätslösungen. Unser skalierbares SaaS-Modell und die hohe technologische Eintrittsbarriere bieten eine einzigartige Marktchance.</p>
+                    <a href="mailto:pmqualityassistant@icloud.com?subject=Anfrage Pitch Deck: Plant Maintenance Qualitätsassistent" class="btn">Pitch Deck anfordern</a>
+                </div>
+            </div>
+        </section>
+        <section id="pilot" class="pilot-section">
+            <div class="container">
+                <div class="pilot-box">
+                    <h2>Gestalten Sie die Zukunft mit!</h2>
+                    <p>Werden Sie einer von 5 exklusiven Pilotkunden und testen Sie unseren Prototypen. Ihr Feedback fliesst direkt in die Entwicklung ein und Sie profitieren von Sonderkonditionen beim Launch.</p>
+                    <form id="contact-form" class="contact-form" name="kontakt-de" method="POST" data-netlify="true">
+                        <div class="form-fields">
+                            <input type="text" name="name" placeholder="Ihr Name" required>
+                            <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+                        </div>
+                        <button type="submit" class="btn">Demo anfragen</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Plant Maintenance Qualitätsassistent Projekt. Gründung in Vorbereitung.</p>
+            <div class="footer-links">
+                <a href="./impressum.html">Impressum</a>
+                <a href="./datenschutz.html">Datenschutz</a>
+                <a href="https://www.linkedin.com/in/ihr-profil/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
+
+
+--- File: de/impressum.html ---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8"> 
+    <title>Impressum - Plant Maintenance Qualitätsassistent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>body { padding: 2rem; } .container { max-width: 800px; text-align: left;} h1, h2 {text-align: left;}</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Impressum</h1>
+        <h2>Angaben gemäss Art. 3 Abs. 1 lit. s UWG</h2>
+        
+        <p><strong>Verantwortlich für den Inhalt:</strong></p>
+        <p>
+            Daniil Marszallek<br>
+            4058 Basel<br>
+            Schweiz
+        </p>
+
+        <p><strong>Kontakt:</strong></p>
+        <p>
+            E-Mail: pmqualityassistant@icloud.com
+        </p>
+
+        <p><strong>Handelsregistereintrag:</strong></p>
+        <p>
+            Aktuell als Projekt im Gründungsstadium. Die Gründung einer GmbH/AG ist in Vorbereitung.
+        </p>
+
+        <h2>Haftungsausschluss</h2>
+        <p>Der Autor übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen. Haftungsansprüche gegen den Autor wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen, durch Missbrauch der Verbindung oder durch technische Störungen entstanden sind, werden ausgeschlossen.</p>
+        
+        <br>
+        <a href="./index.html">Zurück zur Startseite</a>
+    </div>
+</body>
+</html>
+
+
+--- File: de/datenschutz.html ---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8"> <title>Datenschutzerklärung - Plant Maintenance Qualitätsassistent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>body { padding: 2rem; } .container { max-width: 800px; text-align: left;} h1, h2 {text-align: left;}</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Datenschutzerklärung</h1>
+        <p>Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO) und des schweizerischen Datenschutzgesetzes (DSG), ist:</p>
+        <p>
+            Daniil Marszallek<br>
+            4058 Basel<br>
+            E-Mail: pmqualityassistant@icloud.com
+        </p>
+
+        <h2>Erfassung allgemeiner Informationen</h2>
+        <p>Wenn Sie auf unsere Webseite zugreifen, werden automatisch mittels eines Cookies Informationen allgemeiner Natur erfasst. Diese Informationen (Server-Logfiles) beinhalten etwa die Art des Webbrowsers, das verwendete Betriebssystem, den Domainnamen Ihres Internet-Service-Providers und ähnliches. Hierbei handelt es sich ausschliesslich um Informationen, welche keine Rückschlüsse auf Ihre Person zulassen.</p>
+
+        <h2>Kontaktformular</h2>
+        <p>Treten Sie bzgl. Fragen jeglicher Art per E-Mail oder Kontaktformular mit uns in Kontakt, erteilen Sie uns zum Zwecke der Kontaktaufnahme Ihre freiwillige Einwilligung. Hierfür ist die Angabe einer validen E-Mail-Adresse erforderlich. Diese dient der Zuordnung der Anfrage und der anschliessenden Beantwortung derselben. Die von Ihnen gemachten Angaben werden zum Zwecke der Bearbeitung der Anfrage sowie für mögliche Anschlussfragen gespeichert. Für die Abwicklung nutzen wir den Dienst Netlify Forms. Die Daten werden verschlüsselt übertragen und auf den Servern von Netlify (hauptsächlich USA) verarbeitet.</p>
+
+        <h2>Ihre Rechte auf Auskunft, Berichtigung, Sperre, Löschung und Widerspruch</h2>
+        <p>Sie haben das Recht, jederzeit Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten zu erhalten. Ebenso haben Sie das Recht auf Berichtigung, Sperrung oder, abgesehen von der vorgeschriebenen Datenspeicherung zur Geschäftsabwicklung, Löschung Ihrer personenbezogenen Daten.</p>
+
+        <p>Datum: 20.07.2025</p>
+
+        <br>
+        <a href="./index.html">Zurück zur Startseite</a>
+    </div>
+</body>
+</html>
+
+
+--- File: en/index.html ---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Maintenance Quality Assistant - Intelligent SAP Data Quality</title>
+    <meta name="description" content="Enhance your data quality in SAP Plant Maintenance, minimize audit risks, and optimize your maintenance processes with our intelligent assistant.">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <span>SAP<sup>&reg;</sup> Plant Maintenance Quality Assistant</span>
+            </div>
+            <nav>
+                <a href="#pilot">Become a Pilot Customer</a>
+                <a href="#investors" class="nav-investors">For Investors</a>
+                <a href="../de/" class="language-switch">Deutsch</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="hero" class="hero-section">
+            <video autoplay loop muted playsinline class="hero-background-video">
+                <source src="../assets/videos/Video_Generation_Request_Confirmed.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>End audit stress and data chaos.</h1>
+                <p class="subtitle">Our intelligent assistant for SAP Plant Maintenance evaluates, improves, and standardizes your maintenance documentation. Secure, self-learning, and seamlessly integrated.</p>
+                <div class="cta-buttons">
+                    <a href="#pilot" class="btn">Request a Prototype Demo</a>
+                    <a href="#investors" class="btn">More for Investors</a>
+                </div>
+            </div>
+        </section>
+        <section id="problem" class="problem-section">
+            <div class="container">
+                <h2>Does this sound familiar?</h2>
+                <div class="problem-cards">
+                    <div class="card">
+                        <h3>Audit Risk</h3>
+                        <p>"Major findings" in regulatory audits due to unclear maintenance logs.</p>
+                        <span class="material-symbols-outlined card-icon">gavel</span>
+                    </div>
+                    <div class="card">
+                        <h3>Inefficiency</h3>
+                        <p>Vague notifications cost time, cause follow-up questions, and lead to downtimes.</p>
+                        <span class="material-symbols-outlined card-icon">hourglass_disabled</span>
+                    </div>
+                    <div class="card">
+                        <h3>Knowledge Loss</h3>
+                        <p>Valuable expert knowledge is lost in poorly written maintenance descriptions.</p>
+                        <span class="material-symbols-outlined card-icon">psychology_alt</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="solution" class="solution-section">
+            <div class="container">
+                <h2>Your Digital Quality Champion</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="material-symbols-outlined feature-icon">psychology</span>
+                        <h3>AI-Powered Analysis</h3>
+                        <p>Precisely evaluates texts based on GMP & ALCOA+ principles and provides a clear score from 0-100, instantly showing the documentary quality.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-symbols-outlined feature-icon">model_training</span>
+                        <h3>Trained by Experts</h3>
+                        <p>Continuously learns from the feedback of your subject matter experts, adapting to your company's terminology and becoming more precise with every use.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-symbols-outlined feature-icon">monitoring</span>
+                        <h3>Make Quality Measurable</h3>
+                        <p>Turn data quality into a controllable metric. Interactive dashboards reveal systematic weaknesses and identify specific training needs within the team.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="material-symbols-outlined feature-icon">fact_check</span>
+                        <h3>Compliance by Your Rules</h3>
+                        <p>Ensure adherence to your internal standards. The AI uses your Standard Operating Procedures (SOPs) as a knowledge base to check texts for conformity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="security" class="security-section">
+            <div class="container">
+                <h2>Your Data. Your Control. Always.</h2>
+                <p>Our architecture is designed to meet the highest security and compliance requirements of the pharma industry.</p>
+                <div class="security-grid">
+                    <div class="security-item">
+                        <span class="material-symbols-outlined security-icon">shield_lock</span>
+                        <h3>Data Sovereignty</h3>
+                        <p>The analysis runs in your secure SAP BTP environment. Sensitive data never leaves your company's system landscape.</p>
+                    </div>
+                    <div class="security-item">
+                        <span class="material-symbols-outlined security-icon">gpp_good</span>
+                        <h3>GDPR & GxP by Design</h3>
+                        <p>No uncontrolled third-country data transfer. You choose the data center location (e.g., Frankfurt for EU data protection).</p>
+                    </div>
+                    <div class="security-item">
+                        <span class="material-symbols-outlined security-icon">lan</span>
+                        <h3>Seamless Integration</h3>
+                        <p>Secure, encrypted connection to your SAP system via the standard SAP Cloud Connector, with no open firewall ports.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="investors" class="investors-section">
+            <div class="container">
+                <div class="investor-box">
+                    <h2>For Investors: A New Standard for a Billion-Dollar Industry</h2>
+                    <p>We address a critical problem in the growing market for digital quality solutions. Our scalable SaaS model and high technological entry barrier offer a unique market opportunity.</p>
+                    <a href="mailto:pmqualityassistant@icloud.com?subject=Pitch Deck Request: Plant Maintenance Quality Assistant" class="btn">Request Pitch Deck</a>
+                </div>
+            </div>
+        </section>
+        <section id="pilot" class="pilot-section">
+            <div class="container">
+                <div class="pilot-box">
+                    <h2>Shape the future with us!</h2>
+                    <p>Become one of 5 exclusive pilot customers and test our prototype. Your feedback will directly influence the product development, and you will benefit from special conditions at launch.</p>
+                    <form id="contact-form" class="contact-form" name="kontakt-en" method="POST" data-netlify="true">
+                        <div class="form-fields">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email Address" required>
+                        </div>
+                        <button type="submit" class="btn">Request a Demo</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Plant Maintenance Quality Assistant Project. Company formation in progress.</p>
+            <div class="footer-links">
+                <a href="./legal-notice.html">Legal Notice</a>
+                <a href="./privacy-policy.html">Privacy Policy</a>
+                 <a href="https://www.linkedin.com/in/your-profile/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
+
+
+--- File: en/legal-notice.html ---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Legal Notice - Plant Maintenance Quality Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>body { padding: 2rem; } .container { max-width: 800px; text-align: left;} h1, h2 {text-align: left;}</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Legal Notice (Imprint)</h1>
+        <h2>Information according to Swiss Law</h2>
+        
+        <p><strong>Responsible for the content:</strong></p>
+        <p>
+            Daniil Marszallek<br>
+            4058 Basel<br>
+            Switzerland
+        </p>
+
+        <p><strong>Contact:</strong></p>
+        <p>
+            E-Mail: pmqualityassistant@icloud.com
+        </p>
+
+        <p><strong>Commercial Register Entry:</strong></p>
+        <p>
+            Currently a project in the formation stage. The establishment of a limited liability company (GmbH/AG) is in preparation.
+        </p>
+
+        <h2>Disclaimer</h2>
+        <p>The author assumes no liability for the correctness, accuracy, timeliness, reliability, or completeness of the information. Liability claims against the author for material or immaterial damage resulting from access to, use of, or non-use of the published information, from misuse of the connection, or from technical faults are excluded.</p>
+        
+        <br>
+        <a href="./index.html">Back to Homepage</a>
+    </div>
+</body>
+</html>
+
+
+--- File: en/privacy-policy.html ---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Privacy Policy - Plant Maintenance Quality Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>body { padding: 2rem; } .container { max-width: 800px; text-align: left;} h1, h2 {text-align: left;}</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <p>The party responsible within the meaning of data protection laws, in particular the EU General Data Protection Regulation (GDPR) and the Swiss Federal Act on Data Protection (FADP), is:</p>
+        <p>
+            Daniil Marszallek<br>
+            4058 Basel<br>
+            E-Mail: pmqualityassistant@icloud.com
+        </p>
+
+        <h2>Collection of General Information</h2>
+        <p>When you access our website, information of a general nature is automatically collected by means of a cookie. This information (server log files) includes, for example, the type of web browser, the operating system used, the domain name of your internet service provider, and similar data. This is exclusively information that does not allow any conclusions to be drawn about your person.</p>
+
+        <h2>Contact Form</h2>
+        <p>If you contact us with questions of any kind via email or the contact form, you give us your voluntary consent for the purpose of establishing contact. A valid email address is required for this. This is used to assign the request and subsequently answer it. The data you provide will be stored for the purpose of processing the request and for possible follow-up questions. For processing, we use the Netlify Forms service. The data is transmitted in encrypted form and processed on Netlify's servers (primarily in the USA).</p>
+
+        <h2>Your Rights to Access, Rectification, Restriction, Erasure, and Objection</h2>
+        <p>You have the right to receive information about your personal data stored by us at any time. You also have the right to have your personal data rectified, restricted, or, apart from the prescribed data storage for business processing, erased.</p>
+
+        <p>Date: July 20, 2025</p>
+
+        <br>
+        <a href="./index.html">Back to Homepage</a>
+    </div>
+</body>
+</html>
+
+
+--- File: assets/css/style.css ---
+
+/* --- MODERN & TRUSTWORTHY DESIGN --- */
+/* 1. GRUNDEINSTELLUNGEN & VARIABLEN */
+:root {
+    --primary-color: #0071e3; /* Ein kräftigeres, Apple-ähnliches Blau */
+    --background-color: #f5f5f7; /* Leicht grauer, weicher Hintergrund */
+    --card-background-color: #ffffff;
+    --text-color: #1d1d1f; /* Fast Schwarz für Text */
+    --secondary-text-color: #6e6e73; /* Grau für Untertitel */
+    --border-color: #d2d2d7;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    background: var(--background-color);
+    color: var(--text-color);
+}
+.container {
+    max-width: 980px;
+    margin: auto;
+    padding: 0 1.5rem;
+}
+/* 2. TYPOGRAFIE */
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-bottom: 1rem;
+}
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+section .container p {
+    font-size: 1.2rem;
+    color: var(--secondary-text-color);
+    max-width: 750px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+section {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+section:last-of-type {
+    border-bottom: none;
+}
+/* 3. HEADER & NAVIGATION */
+.main-header {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+.main-header .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+.sap-logo {
+    height: 24px;
+    width: auto;
+}
+.main-header nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.9rem;
+}
+/* 4. LAYOUT & KARTEN-DESIGN */
+/* Styling für die Hero-Sektion mit Video-Hintergrund */
+.hero-section {
+    height: 100vh;
+    padding: 0;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+.hero-section > * {
+    grid-area: 1 / 1;
+}
+.hero-background-video,
+.hero-overlay {
+    animation: fade-out linear forwards;
+    animation-timeline: scroll(root);
+    animation-range: 0 400px;
+}
+.hero-background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+.hero-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+.hero-content {
+    z-index: 3;
+    text-align: center; /* NEU: Zentriert allen Inhalt, inklusive der Buttons */
+}
+/* NEU: Ein kleiner Abstand und Layout für die Button-Gruppe */
+.cta-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap; /* Sorgt für Umbruch auf sehr kleinen Bildschirmen */
+}
+.hero-section h1 {
+    color: var(--card-background-color);
+}
+.hero-section .subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.5rem;
+    margin: 1rem auto;
+}
+.problem-section {
+    background: transparent;
+}
+.problem-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.card {
+    background: var(--card-background-color);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+.card h3 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    text-align: center;
+}
+.card p {
+    font-size: 1rem;
+    text-align: left;
+    flex-grow: 1;
+}
+.card .card-icon {
+    font-size: 2.5rem;
+    color: var(--border-color);
+    margin-top: 1.5rem;
+    align-self: center;
+}
+.architecture-visual img {
+    max-width: 100%;
+    max-width: 700px;
+    margin-top: 2rem;
+}
+/* Feature Grid für die Lösungs-Sektion */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.feature-item .feature-icon {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+.feature-item h3 {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+.feature-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+/* Security Grid für die Sicherheits-Sektion */
+.security-section {
+    background: transparent;
+}
+.security-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+.security-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.security-item .security-icon {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+.security-item h3 {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+.security-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+/* Responsives Verhalten für mobile Ansicht */
+@media (max-width: 768px) {
+    .features-grid, .security-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Styling für Investoren-Sektion */
+.investors-section {
+    background: transparent;
+}
+.investor-box {
+    background: transparent;
+    padding: 3rem;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.investor-box h2,
+.investor-box p {
+    color: var(--light-color);
+}
+.investor-box .btn {
+    background: var(--card-background-color);
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+}
+/* 5. BUTTONS & INTERAKTIONEN */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 980px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    background: var(--card-background-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+.btn:hover {
+    transform: scale(1.05);
+    background: var(--primary-color);
+    color: var(--light-color);
+}
+/* 6. FORMULAR-STYLING & PILOT-KARTE */
+.pilot-section .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.pilot-box {
+    background: var(--card-background-color);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+.contact-form {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.contact-form input {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--card-background-color);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    -webkit-appearance: none;
+}
+.contact-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.4);
+}
+.contact-form .btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+/* 7. ANIMATIONEN */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* 8. FOOTER */
+.main-footer {
+    background: transparent;
+    color: var(--secondary-text-color);
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+}
+.footer-links a {
+    color: var(--text-color);
+    text-decoration: underline;
+    margin: 0 0.5rem;
+}
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* 9. (REVISED) TIMELINE-SEKTION */
+.process-section .section-subtitle {
+    margin-bottom: 2rem;
+}
+.timeline-wrapper {
+    position: relative;
+    max-width: 500px;
+    margin: auto;
+}
+.timeline-svg {
+    width: 100%;
+    height: auto;
+}
+.timeline-path {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 2000; /* Must be longer than the path */
+    stroke-dashoffset: 2000; /* Hides the path initially */
+}
+.milestone-group {
+    cursor: pointer;
+}
+.milestone-circle {
+    fill: var(--card-background-color);
+    stroke: var(--primary-color);
+    stroke-width: 2.5;
+    transition: transform 0.3s ease;
+}
+.milestone-group:hover .milestone-circle {
+    transform: scale(1.3);
+    /* SVG elements need a different transform-origin syntax */
+    transform-origin: center; 
+}
+.milestone-label {
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-weight: 700;
+    fill: var(--text-color);
+    text-anchor: middle; /* Centers text horizontally */
+}
+/* Adjust specific label positions */
+.milestone-label[x="80"] { text-anchor: end; }
+.milestone-label[x="320"] { text-anchor: start; }
+.milestone-label[x="180"] { text-anchor: end; }
+
+#timeline-tooltip {
+    display: none; /* Hidden by default */
+    position: absolute; /* Position relative to the page */
+    background-color: var(--text-color);
+    color: var(--card-background-color);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    max-width: 220px;
+    text-align: center;
+    z-index: 100;
+    opacity: 0; /* Start invisible for fade-in */
+    transition: opacity 0.2s ease;
+    /* ADD THIS LINE BACK - It's the key to stopping the flicker */
+    pointer-events: none;
+}
+
+
+--- File: assets/js/script.js ---
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Code für sanftes Scrollen ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // --- Code für Fade-In Animationen beim Scrollen ---
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, 
+    {
+        threshold: 0.1
+    });
+
+    // Weisen Sie den Observer allen Sektionen und Karten zu
+    document.querySelectorAll('section, .card, .pilot-box').forEach(element => {
+        element.classList.add('fade-in-section');
+        observer.observe(element);
+    });
+
+    // --- (Corrected) Code für Timeline ---
+    const processSection = document.querySelector('.process-section');
+    if (processSection) {
+        
+        // 1. ANIMATION OBSERVER
+        const timelineAnimationObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const paths = document.querySelectorAll('.timeline-svg .timeline-path');
+                    paths.forEach(path => {
+                        path.style.transition = 'stroke-dashoffset 4s ease-out';
+                        path.style.strokeDashoffset = '0';
+                    });
+                    timelineAnimationObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5 
+        });
+        timelineAnimationObserver.observe(processSection);
+
+        // 2. TOOLTIP INTERACTIVITY (CORRECTED & FINAL)
+        const tooltip = document.getElementById('timeline-tooltip');
+        const milestoneCircles = document.querySelectorAll('.milestone-circle');
+
+        milestoneCircles.forEach(circle => {
+            circle.addEventListener('mouseenter', () => {
+                const tooltipText = circle.parentNode.getAttribute('data-tooltip');
+                tooltip.innerHTML = tooltipText;
+
+                const circleRect = circle.getBoundingClientRect();
+                const tooltipWidth = 220; // Width from CSS
+
+                let top = circleRect.top + window.scrollY - 45; // Adjusted offset
+                // THE FIX IS HERE: Removed "+ window.scrollY" from the 'left' calculation
+                let left = circleRect.left + (circleRect.width / 2) - (tooltipWidth / 2);
+
+                if (left < 10) left = 10;
+
+                tooltip.style.top = `${top}px`;
+                tooltip.style.left = `${left}px`;
+                tooltip.style.display = 'block';
+                tooltip.style.opacity = 1;
+            });
+
+            circle.addEventListener('mouseleave', () => {
+                tooltip.style.opacity = 0;
+                // Hide the element after the fade-out transition (200ms)
+                setTimeout(() => {
+                    tooltip.style.display = 'none';
+                }, 200);
+            });
+        });
+    }
+});
+

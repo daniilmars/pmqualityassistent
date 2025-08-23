@@ -29,9 +29,7 @@
             <video autoplay loop muted playsinline class="hero-background-video">
                 <source src="../assets/videos/Video_Generation_Request_Confirmed.mp4" type="video/mp4">
             </video>
-
             <div class="hero-overlay"></div>
-
             <div class="container hero-content">
                 <h1>Schluss mit Audit-Stress und Daten-Chaos.</h1>
                 <p class="subtitle">Unser intelligenter Assistent für SAP Plant Maintenance bewertet, verbessert und standardisiert Ihre Instandhaltungs-Dokumentation. Sicher, selbstlernend und nahtlos integriert.</p>
@@ -89,7 +87,58 @@
                     </div>
                 </div>
             </div>
-        </section>   
+        </section>
+        
+        <section id="process" class="process-section">
+            <div class="container">
+                <h2>So funktioniert's: Vom Plan zur Perfektion</h2>
+                <p class="section-subtitle">Unser Assistent begleitet Sie durch den gesamten Instandhaltungsprozess – von der Planung oder Störungsmeldung bis zum sauberen Abschluss.</p>
+                
+                <div class="timeline-wrapper">
+                    <svg class="timeline-svg" viewBox="0 0 400 650" preserveAspectRatio="xMidYMid meet">
+                        <path id="path1" class="timeline-path" d="M 100 25 V 125 C 100 175, 200 175, 200 225"></path>
+                        <path id="path3" class="timeline-path" d="M 200 225 S 300 275, 300 325 V 375 S 300 425, 200 475 S 100 525, 100 575 V 625"></path>
+                        <path id="path2" class="timeline-path" d="M 300 25 V 125 C 300 175, 200 175, 200 225"></path>
+
+                        <g class="milestone-group" data-tooltip="Eine präventive Wartung wird vom System automatisch ausgelöst.">
+                            <circle class="milestone-circle" cx="100" cy="25" r="8"></circle>
+                            <text class="milestone-label" x="80" y="29">Planung</text>
+                        </g>
+                        <g class="milestone-group" data-tooltip="Ein Techniker erfasst eine ungeplante Störung im System.">
+                            <circle class="milestone-circle" cx="300" cy="25" r="8"></circle>
+                            <text class="milestone-label" x="320" y="29">Störung</text>
+                        </g>
+                        <g class="milestone-group" data-tooltip="Arbeitsplan, Material und Ressourcen sind im Auftrag hinterlegt.">
+                            <circle class="milestone-circle" cx="100" cy="125" r="8"></circle>
+                            <text class="milestone-label" x="80" y="129">Freigabe</text>
+                        </g>
+                        <g class="milestone-group" data-tooltip="Ein Planer prüft die Meldung und legt einen Auftrag an.">
+                            <circle class="milestone-circle" cx="300" cy="125" r="8"></circle>
+                            <text class="milestone-label" x="320" y="129">
+                                <tspan>Auftragser-</tspan>
+                                <tspan x="320" dy="1.2em">stellung</tspan>
+                            </text>
+                        </g>
+                        <g class="milestone-group" data-tooltip="Der Techniker beginnt mit der Ausführung der geplanten Arbeiten.">
+                            <circle class="milestone-circle" cx="200" cy="225" r="8"></circle>
+                            <text class="milestone-label" x="180" y="229">Durchführung</text>
+                        </g>
+                        <g class="milestone-group" data-tooltip="Der Techniker dokumentiert seine Tätigkeiten.">
+                            <circle class="milestone-circle" cx="300" cy="375" r="8"></circle>
+                            <text class="milestone-label" x="320" y="379">Rückmeldung</text>
+                        </g>
+                        <g class="milestone-group" data-tooltip="Die technische Arbeit ist beendet.">
+                            <circle class="milestone-circle" cx="200" cy="475" r="8"></circle>
+                            <text class="milestone-label" x="180" y="479">Techn. Abschluss</text>
+                        </g>
+                        <g class="milestone-group" data-tooltip="Alle Kosten sind verbucht, der Prozess ist vollständig abgeschlossen.">
+                            <circle class="milestone-circle" cx="100" cy="625" r="8"></circle>
+                            <text class="milestone-label" x="80" y="629">Abschluss</text>
+                        </g>
+                    </svg>
+                    </div>
+            </div>
+        </section>
         <section id="security" class="security-section">
             <div class="container">
                 <h2>Ihre Daten. Ihre Kontrolle. Immer.</h2>
@@ -116,11 +165,11 @@
         <section id="investors" class="investors-section">
             <div class="container">
                 <div class="investor-box">
-                    
                     <h2>Für Investoren: Ein neuer Standard für eine Milliarden-Branche</h2>
                     <p>Wir adressieren ein kritisches Problem im wachsenden Markt für digitale Qualitätslösungen. Unser skalierbares SaaS-Modell und die hohe technologische Eintrittsbarriere bieten eine einzigartige Marktchance.</p>
                     <a href="mailto:pmqualityassistant@icloud.com?subject=Anfrage Pitch Deck: Plant Maintenance Qualitätsassistent" class="btn">Pitch Deck anfordern</a>
-                </div> </div>
+                </div>
+            </div>
         </section>
         <section id="pilot" class="pilot-section">
             <div class="container">
@@ -144,10 +193,11 @@
             <div class="footer-links">
                 <a href="./impressum.html">Impressum</a>
                 <a href="./datenschutz.html">Datenschutz</a>
-                 <a href="https://www.linkedin.com/in/ihr-profil/" target="_blank">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/ihr-profil/" target="_blank">LinkedIn</a>
             </div>
         </div>
     </footer>
+    <div id="timeline-tooltip"></div>
     <script src="../assets/js/script.js"></script>
 </body>
 </html>
