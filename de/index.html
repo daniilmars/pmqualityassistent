@@ -26,7 +26,7 @@
     </header>
     <main>
         <section id="hero" class="hero-section">
-            <video autoplay loop muted playsinline class="hero-background-video">
+            <video autoplay loop muted playsinline preload="auto" class="hero-background-video">
                 <source src="../assets/videos/Video_Generation_Request_Confirmed.mp4" type="video/mp4">
             </video>
             <div class="hero-overlay"></div>
@@ -95,69 +95,53 @@
                 <p class="section-subtitle">Unser Assistent begleitet Sie durch den gesamten Instandhaltungsprozess – von der Planung oder Störungsmeldung bis zum sauberen Abschluss.</p>
                 
                 <div class="timeline-wrapper">
-                    <svg class="timeline-svg" viewBox="0 0 400 650" preserveAspectRatio="xMidYMid meet">
-                        <path id="path1" class="timeline-path" d="M 100 25 V 125 C 100 175, 200 175, 200 225"></path>
-                        <path id="path3" class="timeline-path" d="M 200 225 S 300 275, 300 325 V 375 S 300 425, 200 475 S 100 525, 100 575 V 625"></path>
-                        <path id="path2" class="timeline-path" d="M 300 25 V 125 C 300 175, 200 175, 200 225"></path>
+                    <svg class="timeline-svg" viewBox="0 0 600 650" preserveAspectRatio="xMidYMid meet">
+                        <path id="path1" class="timeline-path" d="M 150 25 V 125 C 150 175, 250 175, 250 225"></path>
+                        <path id="path3" class="timeline-path" d="M 250 225 S 350 275, 350 325 V 375 S 350 425, 250 475 S 150 525, 150 575 V 625"></path>
+                        <path id="path2" class="timeline-path" d="M 350 25 V 125 C 350 175, 250 175, 250 225"></path>
 
-                                                                                                                        <g class="milestone-group" data-tooltip="Eine präventive Wartung wird vom System automatisch ausgelöst.">
-                            <circle class="milestone-circle" cx="100" cy="25" r="8"></circle>
-                            <foreignObject x="88" y="13" width="56" height="56">
-                                <i class="material-symbols-outlined milestone-icon">event_note</i>
-                            </foreignObject>
-                            <text class="milestone-label" x="75" y="35">Planung</text>
+                                                                        <g class="milestone-group" data-tooltip="Eine präventive Wartung wird vom System automatisch ausgelöst.">
+                            <circle class="milestone-circle" cx="150" cy="25" r="23.4"></circle>
+                            <text x="150" y="25" dy="0.5em" class="material-symbols-outlined milestone-icon">event_note</text>
+                            <text class="milestone-label" x="60" y="35">Planung</text>
                         </g>
-                                                <g class="milestone-group" data-tooltip="Ein Techniker erfasst eine ungeplante Störung im System.">
-                            <circle class="milestone-circle" cx="300" cy="25" r="8"></circle>
-                            <foreignObject x="288" y="13" width="56" height="56">
-                                <i class="material-symbols-outlined milestone-icon">error</i>
-                            </foreignObject>
-                            <text class="milestone-label" x="325" y="35">Störung</text>
+                        <g class="milestone-group" data-tooltip="Ein Techniker erfasst eine ungeplante Störung im System.">
+                            <circle class="milestone-circle" cx="350" cy="25" r="23.4"></circle>
+                            <text x="350" y="25" dy="0.5em" class="material-symbols-outlined milestone-icon">error</text>
+                            <text class="milestone-label" x="445" y="35">Störung</text>
                         </g>
                         <g class="milestone-group" data-tooltip="Arbeitsplan, Material und Ressourcen sind im Auftrag hinterlegt.">
-                            <circle class="milestone-circle" cx="100" cy="125" r="8"></circle>
-                            <foreignObject x="88" y="113" width="56" height="56">
-                                <i class="material-symbols-outlined milestone-icon">check_circle</i>
-                            </foreignObject>
-                            <text class="milestone-label" x="75" y="135">Freigabe</text>
+                            <circle class="milestone-circle" cx="150" cy="125" r="23.4"></circle>
+                            <text x="150" y="125" dy="0.5em" class="material-symbols-outlined milestone-icon">check_circle</text>
+                            <text class="milestone-label" x="60" y="135">Freigabe</text>
                         </g>
-                                                                                                                                                                                                                        <g class="milestone-group" data-tooltip="Ein Planer prüft die Meldung und legt einen Auftrag an.">
-                            <circle class="milestone-circle" cx="300" cy="125" r="8"></circle>
-                            <foreignObject x="288" y="113" width="56" height="56">
-                                <i class="material-symbols-outlined milestone-icon">note_add</i>
-                            </foreignObject>
-                            <text class="milestone-label" x="325" y="135">
+                        <g class="milestone-group" data-tooltip="Ein Planer prüft die Meldung und legt einen Auftrag an.">
+                            <circle class="milestone-circle" cx="350" cy="125" r="23.4"></circle>
+                            <text x="350" y="125" dy="0.5em" class="material-symbols-outlined milestone-icon">note_add</text>
+                            <text class="milestone-label" x="445" y="135">
                                 <tspan>Auftragser-</tspan>
-                                <tspan x="325" dy="1.2em">stellung</tspan>
+                                <tspan x="445" dy="1.2em">stellung</tspan>
                             </text>
                         </g>
                         <g class="milestone-group" data-tooltip="Der Techniker beginnt mit der Ausführung der geplanten Arbeiten.">
-                            <circle class="milestone-circle" cx="200" cy="225" r="8"></circle>
-                            <foreignObject x="188" y="213" width="56" height="56">
-                                <i class="material-symbols-outlined milestone-icon">construction</i>
-                            </foreignObject>
-                            <text class="milestone-label" x="225" y="235">Durchführung</text>
+                            <circle class="milestone-circle" cx="250" cy="225" r="23.4"></circle>
+                            <text x="250" y="225" dy="0.5em" class="material-symbols-outlined milestone-icon">construction</text>
+                            <text class="milestone-label" x="345" y="235">Durchführung</text>
                         </g>
-                                                <g class="milestone-group" data-tooltip="Der Techniker dokumentiert seine Tätigkeiten.">
-                            <circle class="milestone-circle" cx="300" cy="375" r="8"></circle>
-                            <foreignObject x="289" y="364" width="56" height="56">
-                                <i class="material-symbols-outlined milestone-icon">feedback</i>
-                            </foreignObject>
-                            <text class="milestone-label" x="275" y="385">Rückmeldung</text>
+                        <g class="milestone-group" data-tooltip="Der Techniker dokumentiert seine Tätigkeiten.">
+                            <circle class="milestone-circle" cx="350" cy="375" r="23.4"></circle>
+                            <text x="350" y="375" dy="0.5em" class="material-symbols-outlined milestone-icon">feedback</text>
+                            <text class="milestone-label" x="445" y="385">Rückmeldung</text>
                         </g>
-                                                                                                <g class="milestone-group" data-tooltip="Die technische Arbeit ist beendet.">
-                            <circle class="milestone-circle" cx="200" cy="475" r="8"></circle>
-                            <foreignObject x="188" y="463" width="56" height="56">
-                                <i class="material-symbols-outlined milestone-icon">verified</i>
-                            </foreignObject>
-                            <text class="milestone-label" x="225" y="485">Techn. Abschluss</text>
+                        <g class="milestone-group" data-tooltip="Die technische Arbeit ist beendet.">
+                            <circle class="milestone-circle" cx="250" cy="475" r="23.4"></circle>
+                            <text x="250" y="475" dy="0.5em" class="material-symbols-outlined milestone-icon">verified</text>
+                            <text class="milestone-label" x="365" y="485">Techn. Abschluss</text>
                         </g>
                         <g class="milestone-group" data-tooltip="Alle Kosten sind verbucht, der Prozess ist vollständig abgeschlossen.">
-                            <circle class="milestone-circle" cx="100" cy="625" r="8"></circle>
-                            <foreignObject x="88" y="613" width="56" height="56">
-                                <i class="material-symbols-outlined milestone-icon">flag</i>
-                            </foreignObject>
-                            <text class="milestone-label" x="125" y="635">Abschluss</text>
+                            <circle class="milestone-circle" cx="150" cy="625" r="23.4"></circle>
+                            <text x="150" y="625" dy="0.5em" class="material-symbols-outlined milestone-icon">flag</text>
+                            <text class="milestone-label" x="245" y="635">Abschluss</text>
                         </g>
                     </svg>
                     </div>
