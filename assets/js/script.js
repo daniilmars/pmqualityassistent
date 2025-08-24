@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('script.js loaded and DOMContentLoaded fired');
 
     // --- Code für sanftes Scrollen ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
