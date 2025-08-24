@@ -183,17 +183,18 @@
                 <div class="pilot-box">
                     <h2>Shape the future with us!</h2>
                     <p>Become one of 5 exclusive pilot customers and test our prototype. Your feedback will directly influence the product development, and you will benefit from special conditions at launch.</p>
-                    <form id="contact-form" class="contact-form" name="contact-en">
+        <section id="pilot" class="pilot-section">
+            <div class="container">
+                <div class="pilot-box">
+                    <h2>Shape the future with us!</h2>
+                    <p>Become one of 5 exclusive pilot customers and test our prototype. Your feedback will directly influence the product development, and you will benefit from special conditions at launch.</p>
+                    <form id="contact-form" class="contact-form" name="contact-form" method="POST" data-netlify="true">
+                        <input type="hidden" name="form-name" value="contact-form" />
                         <div class="form-fields">
                             <input type="text" name="name" placeholder="Your Name" required>
                             <input type="email" name="email" placeholder="Your Email Address" required>
                         </div>
                         <button type="submit" class="btn">Request a Demo</button>
-                    </form>
-                    <form name="contact-en-storage" netlify netlify-honeypot="bot-field" hidden>
-                      <input type="hidden" name="form-name" value="contact-en" />
-                      <input type="text" name="name" />
-                      <input type="email" name="email" />
                     </form>
                 </div>
             </div>
@@ -215,21 +216,16 @@
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        const name = form.elements['name'].value;
-        const email = form.elements['email'].value;
+        const myForm = event.target;
+        const formData = new FormData(myForm);
 
-        const response = await fetch('/.netlify/functions/submit-form', {
-          method: 'POST',
-          body: JSON.stringify({ 'form-name': 'contact-en', name, email }),
-        });
-
-        if (response.ok) {
-          const result = await response.json();
-          alert(result.message);
-          form.reset();
-        } else {
-          alert('An error occurred. Please try again.');
-        }
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString(),
+        })
+          .then(() => alert("Form successfully submitted"))
+          .catch((error) => alert(error));
       });
     </script>
 </body>
