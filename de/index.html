@@ -184,17 +184,13 @@
                 <div class="pilot-box">
                     <h2>Gestalten Sie die Zukunft mit!</h2>
                     <p>Werden Sie einer von 5 exklusiven Pilotkunden und testen Sie unseren Prototypen. Ihr Feedback fliesst direkt in die Entwicklung ein und Sie profitieren von Sonderkonditionen beim Launch.</p>
-                    <form id="contact-form" class="contact-form" name="kontakt-de">
+                    <form id="contact-form" class="contact-form" name="contact-form" method="POST" data-netlify="true">
+                        <input type="hidden" name="form-name" value="contact-form" />
                         <div class="form-fields">
                             <input type="text" name="name" placeholder="Ihr Name" required>
                             <input type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
                         </div>
                         <button type="submit" class="btn">Demo anfragen</button>
-                    </form>
-                    <form name="contact-form-storage" netlify netlify-honeypot="bot-field" hidden>
-                      <input type="hidden" name="form-name" value="contact-form-storage" />
-                      <input type="text" name="name" />
-                      <input type="email" name="email" />
                     </form>
                 </div>
             </div>
@@ -217,21 +213,16 @@
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        const name = form.elements['name'].value;
-        const email = form.elements['email'].value;
+        const myForm = event.target;
+        const formData = new FormData(myForm);
 
-        const response = await fetch('/.netlify/functions/submit-form', {
-          method: 'POST',
-          body: JSON.stringify({ 'form-name': 'contact-form-storage', name, email }),
-        });
-
-        if (response.ok) {
-          const result = await response.json();
-          alert(result.message);
-          form.reset();
-        } else {
-          alert('An error occurred. Please try again.');
-        }
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString(),
+        })
+          .then(() => alert("Form successfully submitted"))
+          .catch((error) => alert(error));
       });
     </script>
 </body>
