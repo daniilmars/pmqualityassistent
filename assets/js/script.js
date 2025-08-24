@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', updateTimelineAnimation);
-    updateTimelineAnimation();
+    window.addEventListener('load', updateTimelineAnimation);
 
     // --- (NEW) Code für Tooltip ---
     const milestoneGroups = document.querySelectorAll('.milestone-group');
