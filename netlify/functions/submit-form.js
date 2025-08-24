@@ -7,10 +7,7 @@ exports.handler = async (event) => {
     const response = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({
-        'form-name': 'contact-form-storage',
-        ...data,
-      }).toString(),
+      body: new URLSearchParams(data).toString(),
     });
 
     if (response.ok) {
