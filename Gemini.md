@@ -41,3 +41,9 @@ When working with Gemini, please provide clear and concise instructions.
 If you want to modify the website, please specify which page (English or German) you want to modify.
 If you want to modify the styling, please refer to the `assets/css/style.css` file.
 If you want to modify the animation, please refer to the `assets/js/script.js` file and the SVG elements in the HTML files.
+
+## Conversation History
+
+Store every time our full conversation, in a proper file format. When I work with gemini in the future, I want to save all conversations so he will learn the history of the chat.
+
+The conversation is saved continuously to the `gemini_brain.md` file. After each user message, the full conversation history is appended to this file.

@@ -112,4 +112,24 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- Video fade-out on scroll (Smooth) ---
+    const heroSection = document.querySelector('.hero-section');
+    const heroVideo = document.querySelector('.hero-background-video');
+    const heroOverlay = document.querySelector('.hero-overlay');
+
+    if (heroSection && heroVideo && heroOverlay) {
+        window.addEventListener('scroll', () => {
+            const heroSectionRect = heroSection.getBoundingClientRect();
+            const scrollProgress = -heroSectionRect.top / (window.innerHeight * 0.8); // Fade out over 80% of viewport height
+
+            let opacity = 1 - scrollProgress;
+
+            // Clamp opacity between 0 and 1
+            opacity = Math.max(0, Math.min(1, opacity));
+
+            heroVideo.style.opacity = opacity;
+            heroOverlay.style.opacity = opacity;
+        });
+    }
 });
